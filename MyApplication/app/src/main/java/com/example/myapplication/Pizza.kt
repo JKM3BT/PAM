@@ -11,9 +11,9 @@ fun order(){
     val name = readln()
     println("I kontakt do Pani/Pana?")
     val number = readln()
-    val pizza : Pizza = Pizza(type = type, price = 0, size = size)
-    val napoj : Napoj = Napoj(name = drink, price = 0)
-    val client : Client = Client(name = name, number  = number)
+    val pizza = Pizza(type = type, price = 0, size = size)
+    val napoj = Napoj(name = drink, price = 0)
+    val client = Client(name = name, number  = number)
     if (pizza.size == "Big"){
         println("${pizza.type}, ${pizza.size}, ${pizza.price+25}")
     }
@@ -27,9 +27,7 @@ fun order(){
 data class Pizza(val type: String, var price: Int, val size: String)
 data class Napoj(val name: String, val price: Int)
 
-class Client(val name: String, val number: String){
-
-}
+data class Client(val name: String, val number: String)
 
 fun main(){
     order()
