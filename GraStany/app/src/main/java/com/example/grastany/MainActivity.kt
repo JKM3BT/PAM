@@ -3,6 +3,7 @@ package com.example.grastany
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -10,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.grastany.ui.theme.GraStanyTheme
@@ -36,7 +38,11 @@ fun licz(){
 
     var liczba_klikniec = 0
 
-    Column {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(text = "liczba kliknieć $liczba_klikniec")
         Button(onClick = { /*TODO*/ }) {
             Text(text = "kliknij mnie")
@@ -48,6 +54,6 @@ fun licz(){
 @Composable
 fun GreetingPreview() {
     GraStanyTheme {
-
+        licz()
     }
 }
