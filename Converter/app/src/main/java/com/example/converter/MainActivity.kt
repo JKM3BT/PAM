@@ -64,13 +64,22 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier) {
         Pair(inches, foots) to 0.0833333
     )
 
-    var inputValue by remember { mutableStateOf("")}
-    var outputValue by remember { mutableStateOf("")}
+    var inputUnit by remember { mutableStateOf(cent)}
+    var outputUnit by remember { mutableStateOf(cent)}
     var inExpended by remember { mutableStateOf(false)}
     var outExpended by remember { mutableStateOf(false)}
 
     var inputNumber by remember {
         mutableStateOf("")
+    }
+    var result by remember {mutableStateOf("0")}
+
+    fun convertUnits(){
+        val inputNumberDouble = inputNumber.toDoubleOrNull()?:0.0
+        val key = Pair(inputUnit,outputUnit)
+        val factor: Double = conversionFactors[key] ?: 1.0
+        val resultDouble = inputNumberDouble * factor
+        result = resultDouble.toString()
     }
 
     Column(
@@ -82,31 +91,34 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        OutlinedTextField(value = "coś", onValueChange = {inputNumber=it})
+        OutlinedTextField(value = inputNumber, onValueChange = {inputNumber=it;convertUnits()})
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Row {
             Box {
                 Button(onClick = {inExpended=true}) {
-                    Text(text = "Select")
+                    Text(text = inputUnit)
                     Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "arrow")
                 }
                 DropdownMenu(expanded = inExpended, onDismissRequest = {inExpended=false}) {
                     DropdownMenuItem(text = { Text(cent)},
                         onClick = {
-                            inputValue=cent
+                            inputUnit=cent
                             inExpended=false
+                            convertUnits()
                         })
                     DropdownMenuItem(text = {Text(inches)},
                         onClick = {
-                            inputValue=inches
+                            inputUnit=inches
                             inExpended=false
+                            convertUnits()
                         })
                     DropdownMenuItem(text = {Text(foots)},
                         onClick = {
-                            inputValue=foots
+                            inputUnit=foots
                             inExpended=false
+                            convertUnits()
                         })
                 }
             }
@@ -114,8 +126,8 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier) {
                 Spacer(modifier = Modifier.height(15.dp))
 
             Box {
-                Button(onClick = {inExpended=true}) {
-                    Text(text = "Select")
+                Button(onClick = {outExpended=true}) {
+                    Text(text = outputUnit)
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "arrow"
@@ -124,24 +136,27 @@ fun UnitConverter(name: String, modifier: Modifier = Modifier) {
                 DropdownMenu(expanded = outExpended, onDismissRequest = {outExpended=false}) {
                     DropdownMenuItem(text = { Text(cent)},
                         onClick = {
-                            outputValue=cent
+                            outputUnit=cent
                             outExpended=false
+                            convertUnits()
                         })
                     DropdownMenuItem(text = {Text(inches)},
                         onClick = {
-                            outputValue=inches
+                            outputUnit=inches
                             outExpended=false
+                            convertUnits()
                         })
                     DropdownMenuItem(text = {Text(foots)},
                         onClick = {
-                            outputValue=foots
+                            outputUnit=foots
                             outExpended=false
+                            convertUnits()
                         })
                 }
             }
         }
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Result: $outputValue")
+        Text(text = "Result: $result")
     }
 }
 @Preview(showBackground = true)
