@@ -15,16 +15,71 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tytuł"/>
+            android:text="Tytuł"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:hint="Wpisz tytuł"/>
 
     </LinearLayout>
-     <GridLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gatunek"
+            android:textSize="30sp"/>
+         <GridLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:columnCount="2"
+             android:rowCount="3">
+            <CheckBox android:layout_width="200dp"
+                android:text="Komedia"
+                android:textSize="20sp"/>
+             <CheckBox android:layout_width="220dp"
+                 android:text="Horror"
+                 android:textSize="20sp"/>
+             <CheckBox android:layout_width="200dp"
+                 android:text="Romans"
+                 android:textSize="20sp"/>
+             <CheckBox android:layout_width="220dp"
+                 android:text="Przygodowy"
+                 android:textSize="20sp"/>
+             <CheckBox android:layout_width="200dp"
+                 android:text="Dla młodzieży"
+                 android:textSize="20sp"/>
+             <CheckBox android:layout_width="220dp"
+                 android:text="Popularnonaukowe"
+                 android:textSize="20sp"/>
+         </GridLayout>
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Film"
+            android:textSize="15sp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="45dp"/>
 
-     </GridLayout>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Książka"
+            android:textSize="15sp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="45dp"/>
+    </RadioGroup>
 </LinearLayout>
