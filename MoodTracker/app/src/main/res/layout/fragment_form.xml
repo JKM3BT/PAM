@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormFragment"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <ImageButton
+        android:id="@+id/mainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Go back to the list"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:background="@drawable/round_button"
+        android:layout_margin="12dp"
+        android:layout_gravity="start"
+        />
+    <RadioGroup
+        android:id="@+id/moodGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="130dp"
+        >
+        <RadioButton
+            android:id="@+id/goodMood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dobrze"
+            android:layout_margin="8dp"
+            />
+        <RadioButton
+            android:id="@+id/neutralMood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neutralnie"
+            android:layout_margin="8dp"
+            />
+        <RadioButton
+            android:id="@+id/badMood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Źle"
+            android:layout_margin="8dp"
+            />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/dailyThoughts"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:autofillHints="no"
+        android:hint="Notatka na twoje przemyślenia"
+        android:textAlignment="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zapisz"
+        android:textSize="20sp"
+        android:backgroundTint="#5693f5"
+        android:layout_margin="32dp"
+        />
+
+</LinearLayout>
